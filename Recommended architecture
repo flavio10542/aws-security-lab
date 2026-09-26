@@ -1,0 +1,40 @@
+                         Internet
+                            |
+                            v
+                  +-------------------+
+                  | Application Load  |
+                  | Balancer          |
+                  | Public Subnets    |
+                  +---------+---------+
+                            |
+                 HTTP :80   |
+              +-------------+-------------+
+              |                           |
+              v                           v
+      +---------------+           +---------------+
+      | EC2 Web #1    |           | EC2 Web #2    |
+      | Public Subnet |           | Public Subnet |
+      +-------+-------+           +-------+-------+
+              |                           |
+              +-------------+-------------+
+                            |
+                       IAM Role
+                            |
+                            v
+                       +---------+
+                       |   S3    |
+                       | Bucket  |
+                       +---------+
+
+
+                    IAM / RBAC
+                         |
+          +--------------+--------------+
+          |                             |
+     Admins Group                  Readers Group
+          |                             |
+     admin-user                    reader-1
+     AdministratorAccess           reader-2
+                                   reader-3
+                                   reader-4
+                                   ReadOnlyAccess
